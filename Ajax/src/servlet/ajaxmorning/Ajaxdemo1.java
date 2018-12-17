@@ -8,8 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebServlet(value="/checkname.do")
-public class Ajaxdemo1 extends HttpServlet{
+
+@WebServlet(value = "/checkname.do")
+public class Ajaxdemo1 extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -17,7 +18,7 @@ public class Ajaxdemo1 extends HttpServlet{
 		resp.setContentType("text/html;charset=utf-8");
 		String uname = req.getParameter("username");
 		PrintWriter pw = resp.getWriter();
-		if(uname.equals("zhangsan")){
+		if (uname.equals("zhangsan")) {
 			pw.write("用户名已存在!");
 		}
 	}

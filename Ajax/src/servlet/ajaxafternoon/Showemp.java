@@ -13,23 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSON;
 
-
-@WebServlet(value="/show.do")
-public class Showemp extends HttpServlet{
+@WebServlet(value = "/show.do")
+public class Showemp extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		resp.setContentType("text/text;charset=utf-8"); 
+		resp.setContentType("text/text;charset=utf-8");
 		req.setCharacterEncoding("UTF-8");
-		Empdao empdao=new Empdao();
+		Empdao empdao = new Empdao();
 		PrintWriter pw = resp.getWriter();
 		try {
-			ArrayList<Emp> emplists=empdao.queryEmp();
-//			String sname[]=empdao.getCol();
-//			ArrayList allList=new ArrayList();
-//			allList.add(sname);
-//			allList.add(emplists);
-			Object oempist=JSON.toJSON(emplists);
+			ArrayList<Emp> emplists = empdao.queryEmp();
+			// String sname[]=empdao.getCol();
+			// ArrayList allList=new ArrayList();
+			// allList.add(sname);
+			// allList.add(emplists);
+			Object oempist = JSON.toJSON(emplists);
 			pw.write(oempist.toString());
 		} catch (SQLException e) {
 			e.printStackTrace();
